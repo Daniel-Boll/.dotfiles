@@ -1,7 +1,7 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 if [[ -z $STOW_FOLDERS ]]; then
-  STOW_FOLDERS="ls -d */ | sed 's/\//,/g' | xargs | sed -e 's/ //g' -e 's/,$//g'"
+  STOW_FOLDERS=$(ls -d */ | sed 's/\//,/g' | xargs | sed -e 's/ //g' -e 's/,$//g')
 fi
 
 if [[ -z $DOTFILES ]]; then
