@@ -72,10 +72,11 @@ or alternatively you can run the **arch** script that will list every folder on 
 
 ## TODO
 
-- [ ] A **clean-env** script.
-- [ ] st config.
-- [ ] ncmcpp config.
-- [ ] zshrc config.
-- [ ] WM config.
-- [ ] Multiple WM config support.
-- [ ] Multiple distro support.
+- [ ] A **clean-env** script
+- [ ] st config
+- [ ] ncmcpp config
+- [ ] zshrc config
+- [ ] rofi config
+- [ ] WM config
+- [ ] Multiple WM config support
+- [ ] Multiple distro support
