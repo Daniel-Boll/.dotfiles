@@ -51,3 +51,14 @@ cd ~/.dotfiles
 stow nvim
 stow tmux
 ```
+
+or alternatively you can run the **arch** script that will list every folder on the repo and stow it.
+
+## TODO
+
+- [ ] A **clean-env** script.
+- [ ] st config.
+- [ ] ncmcpp config
+- [ ] WM config.
+- [ ] Multiple WM config support.
+- [ ] Multiple distro support.
