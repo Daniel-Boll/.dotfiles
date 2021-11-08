@@ -15,6 +15,18 @@ My dotfiles for Arch Linux 🐧
 
 ---
 
+## TL;DR
+
+Install through the easier installer
+
+```bash
+curl -o- https://raw.githubusercontent.com/Daniel-Boll/.dotfiles/main/dotfiles.sh | bash
+```
+or
+```bash
+wget -qO- https://raw.githubusercontent.com/Daniel-Boll/.dotfiles/main/dotfiles.sh | bash
+```
+
 ## Installation
 
 First you will need to clone this repository:
