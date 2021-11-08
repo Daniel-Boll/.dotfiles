@@ -58,7 +58,8 @@ or alternatively you can run the **arch** script that will list every folder on 
 
 - [ ] A **clean-env** script.
 - [ ] st config.
-- [ ] ncmcpp config
+- [ ] ncmcpp config.
+- [ ] zshrc config.
 - [ ] WM config.
 - [ ] Multiple WM config support.
 - [ ] Multiple distro support.
