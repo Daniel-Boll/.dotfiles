@@ -10,8 +10,10 @@ My dotfiles for Arch Linux 🐧
 ---
 
 <p align="center">
-Preview of what it looks like.
+<img src="https://github.com/Daniel-Boll/.dotfiles/blob/main/.images/screenshot.png" width=800>
 </p>
+
+---
 
 ## Installation
 
