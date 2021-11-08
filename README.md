@@ -54,6 +54,10 @@ stow tmux
 
 or alternatively you can run the **arch** script that will list every folder on the repo and stow it.
 
+```
+./arch
+```
+
 ## TODO
 
 - [ ] A **clean-env** script.
