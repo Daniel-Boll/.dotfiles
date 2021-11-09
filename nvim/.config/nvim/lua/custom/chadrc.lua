@@ -6,7 +6,7 @@ M.options = {
 }
 
 M.ui = {
-  theme = "doom-chad"
+  theme = "gruvbox"
 }
 
 M.plugins = {
