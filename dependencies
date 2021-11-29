@@ -7,9 +7,11 @@ yay -S make cmake gcc clang base base-devel git moreutils unzip python-pip
 
 # Utilities
 
-yay -S ripgrep bat-cat-git tmux zsh stow xclip xsel tree
+yay -S ripgrep bat tmux zsh stow xclip xsel tree
 
 git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma-continuum/zinit/master/doc/install.sh)"
 
 sudo pip3 install -U Commitizen
 
