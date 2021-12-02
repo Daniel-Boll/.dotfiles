@@ -2,22 +2,23 @@ local M = {}
 M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 
 M.options = {
-   relativenumber = true,
+  relativenumber = true,
 }
 
 M.ui = {
-  theme = "chadracula"
+  theme = "chadracula",
 }
 
 M.plugins = {
-   options = {
+  options = {
     lspconfig = {
-     setup_lspconf = "custom.plugins.lspconfig",
+      setup_lspconf = "custom.plugins.lspconfig",
     },
-   },
-   default_plugin_config_replace = {
-     nvim_cmp = "custom.plugins.cmp"
-   },
+  },
+  default_plugin_config_replace = {
+    nvim_cmp = "custom.plugins.cmp",
+    telescope = "custom.plugins.telescope",
+  },
 }
 
 return M

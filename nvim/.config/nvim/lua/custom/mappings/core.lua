@@ -1,5 +1,3 @@
-local hooks = require "core.hooks"
+local hooks = require("core.hooks")
 
-hooks.add("setup_mappings", function(map)
-end)
-
+hooks.add("setup_mappings", function(map) end)
