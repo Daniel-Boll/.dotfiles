@@ -7,7 +7,7 @@ yay -S make cmake gcc clang base base-devel git moreutils unzip python-pip
 
 # Utilities
 
-yay -S ripgrep bat tmux zsh stow xclip xsel tree
+yay -S ripgrep bat tmux zsh stow xclip xsel tree luarocks
 
 git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 

@@ -8,6 +8,7 @@ require("custom.variables.vim-dadbod")
 require("custom.mappings.core")
 require("custom.mappings.fterm")
 require("custom.mappings.copilot")
+require("custom.mappings.telescope")
 
 ----------->>| PLUGINS |<<-----------
 
