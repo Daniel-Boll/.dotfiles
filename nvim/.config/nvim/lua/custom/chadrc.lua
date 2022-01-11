@@ -6,6 +6,7 @@ M.options = {
 
 M.ui = {
   theme = "chadracula",
+  transparency = true,
 }
 
 M.plugins = {

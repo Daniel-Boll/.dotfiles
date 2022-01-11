@@ -18,6 +18,9 @@ cmp.setup({
   },
   formatting = {
     format = function(entry, vim_item)
+      local icons = require "plugins.configs.lspkind_icons"
+      vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
+
       local menu = ({
         nvim_lsp = "[LSP]",
         nvim_lua = "[Lua]",

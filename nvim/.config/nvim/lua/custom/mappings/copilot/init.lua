@@ -1,11 +1,8 @@
-local hooks = require("core.hooks")
+local map = require("core.utils").map
 
-hooks.add("setup_mappings", function(map)
-  -- Copilot
-  map(
-    "i",
-    "<C-j>",
-    'copilot#Accept("<CR>")',
-    { silent = true, script = true, expr = true }
-  )
-end)
+map(
+  "i",
+  "<C-j>",
+  'copilot#Accept("<CR>")',
+  { silent = true, script = true, expr = true }
+)

@@ -1,5 +1,5 @@
-local hooks = require("core.hooks")
+local customPlugins = require("core.customPlugins")
 
-hooks.add("install_plugins", function(use)
+customPlugins.add(function(use)
   use({ "github/copilot.vim" })
 end)

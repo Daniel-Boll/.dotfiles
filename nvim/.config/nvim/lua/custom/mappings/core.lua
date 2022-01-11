@@ -1,5 +1,3 @@
-local hooks = require("core.hooks")
+local map = require("core.utils").map
 
-local opts = { noremap = true, silent = true }
-
-hooks.add("setup_mappings", function(map) end)
+-- map("n", "<leader>cc", ":Telescope <CR>")

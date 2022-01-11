@@ -1,6 +1,6 @@
-local hooks = require("core.hooks")
+local customPlugins = require("core.customPlugins")
 
-hooks.add("install_plugins", function(use)
+customPlugins.add(function(use)
   use({
     "windwp/nvim-ts-autotag",
     after = "nvim-treesitter",
