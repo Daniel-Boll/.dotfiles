@@ -11,7 +11,6 @@ M.setup_lsp = function(attach, capabilities)
     "rust_analyzer",
     "solargraph",
     "sumneko_lua",
-    "tsserver",
     "clangd",
     "bashls",
     "emmet_ls",
@@ -29,6 +28,30 @@ M.setup_lsp = function(attach, capabilities)
   end
 
   -- Specific configs
+  -- Typescript
+
+  local function organize_imports()
+    local params = {
+      command = "_typescript.organizeImports",
+      arguments = { vim.api.nvim_buf_get_name(0) },
+      title = "",
+    }
+    vim.lsp.buf.execute_command(params)
+  end
+
+  lspconfig.tsserver.setup({
+    on_attach = attach,
+    capabilities = capabilities,
+    flags = {
+      debounce_text_changes = 150,
+    },
+    commands = {
+      OrganizeImports = {
+        organize_imports,
+        description = "Organize Imports",
+      },
+    },
+  })
 
   -- Unity
   local pid = vim.fn.getpid()
@@ -67,17 +90,6 @@ M.setup_lsp = function(attach, capabilities)
       },
     },
   })
-
-  local system_name = "Linux"
-  local sumneko_root_path = "/home/daniel/git-stuff/lua-language-server"
-  local sumneko_binary = sumneko_root_path
-    .. "/bin/"
-    .. system_name
-    .. "/lua-language-server"
-
-  local runtime_path = vim.split(package.path, ";")
-  table.insert(runtime_path, "lua/?.lua")
-  table.insert(runtime_path, "lua/?/init.lua")
 end
 
 return M

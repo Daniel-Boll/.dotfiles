@@ -18,13 +18,6 @@ cmp.setup({
   },
   formatting = {
     format = function(entry, vim_item)
-      -- load lspkind icons
-      vim_item.kind = string.format(
-        "%s %s",
-        require("plugins.configs.lspkind_icons").icons[vim_item.kind],
-        vim_item.kind
-      )
-
       local menu = ({
         nvim_lsp = "[LSP]",
         nvim_lua = "[Lua]",
@@ -94,7 +87,7 @@ cmp.setup({
   },
   sources = {
     { name = "nvim_lsp" },
-    { name = "cmp_tabnine" },
+    -- { name = "cmp_tabnine" },
     { name = "luasnip" },
     { name = "buffer" },
     { name = "nvim_lua" },

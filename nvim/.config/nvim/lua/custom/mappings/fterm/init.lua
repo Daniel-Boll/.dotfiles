@@ -27,7 +27,31 @@ hooks.add("setup_mappings", function(map)
   map(
     "n",
     "<A-p>",
-    '<CMD>lua require("FTerm").scratch({ cmd = "gitPushChooser" })<CR>',
+    '<CMD>lua require("FTerm").scratch({ cmd = "~/dev/scripts/git_push_helper.sh" })<CR>',
+    opts
+  )
+
+  -- Run
+  map(
+    "n",
+    "<F5>",
+    '<CMD>lua require("FTerm").scratch({ cmd = "cat build.type | ./compile.sh" })<CR>',
+    opts
+  )
+
+  -- Run
+  map(
+    "n",
+    "<F9>",
+    '<CMD>lua require("FTerm").scratch({ cmd = "(cat build.type | ./rebuild.sh) && lldb debug/SAHGA" })<CR>',
+    opts
+  )
+
+  -- Run
+  map(
+    "n",
+    "<F10>",
+    '<CMD>lua require("FTerm").scratch({ cmd = "cat build.type | ./rebuild.sh" })<CR>',
     opts
   )
 end)

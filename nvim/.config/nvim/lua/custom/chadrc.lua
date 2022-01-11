@@ -1,5 +1,4 @@
 local M = {}
-M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 
 M.options = {
   relativenumber = true,
