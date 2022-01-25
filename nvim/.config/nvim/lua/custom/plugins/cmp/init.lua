@@ -5,9 +5,6 @@ if not present then
 end
 
 vim.opt.completeopt = "menuone,noselect"
-vim.g.copilot_no_tab_map = true
-vim.g.copilot_assume_mapped = true
-vim.g.copilot_tab_fallback = ""
 
 -- nvim-cmp setup
 cmp.setup({
