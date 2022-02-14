@@ -37,6 +37,14 @@ local sources = {
 
   -- Rust
   builtins.formatting.rustfmt,
+
+  -- Cmake
+  builtins.formatting.cmake_format.with({
+    filetypes = { "cmake", "CMakeLists.txt" },
+  }),
+
+  -- Java
+  builtins.formatting.google_java_format,
 }
 
 local M = {}

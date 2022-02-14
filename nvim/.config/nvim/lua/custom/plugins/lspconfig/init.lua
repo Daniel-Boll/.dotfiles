@@ -14,6 +14,7 @@ M.setup_lsp = function(attach, capabilities)
     "clangd",
     "bashls",
     "emmet_ls",
+    "tailwindcss"
   }
 
   for _, lsp in ipairs(servers) do
@@ -89,6 +90,15 @@ M.setup_lsp = function(attach, capabilities)
         telemetry = { enable = false },
       },
     },
+  })
+
+  -- Java
+  lspconfig.jdtls.setup({
+    on_attach = attach,
+    capabilities = capabilities,
+    cmd = { "jdtls" },
+    root_dir = lspconfig.util.root_pattern("pom.xml", "*.java"),
+    single_file_support = true,
   })
 end
 

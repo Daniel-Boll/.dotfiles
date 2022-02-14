@@ -15,7 +15,7 @@ telescope.setup({
       "--smart-case",
     },
     prompt_prefix = " 🔭 ",
-    selection_caret = "> ",
+    selection_caret = "👉 ",
     entry_prefix = "  ",
     initial_mode = "insert",
     selection_strategy = "reset",
@@ -69,11 +69,3 @@ telescope.setup({
     },
   },
 })
-
-local extensions = { "themes", "terms", "fzf", "ui-select", "media_files" }
-
-pcall(function()
-  for _, ext in ipairs(extensions) do
-    telescope.load_extension(ext)
-  end
-end)

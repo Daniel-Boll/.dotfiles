@@ -1,20 +1,12 @@
 local M = {}
 
--- Add highlight to when in insert mode cursor be block if highlight green
--- and in normal mode cursor be block if highlight blue
-vim.cmd[[
- set guicursor=i:block
- set guifont=Iosevka\ 12
- set so=12
-]]
-
 M.options = {
   relativenumber = true,
 }
 
 M.ui = {
   theme = "chadracula",
-  transparency = true,
+  transparency = false,
 }
 
 M.plugins = {
@@ -27,6 +19,7 @@ M.plugins = {
     nvim_cmp = "custom.plugins.cmp",
     telescope = "custom.plugins.telescope",
   },
+  install = require "custom.plugins",
 }
 
 return M
