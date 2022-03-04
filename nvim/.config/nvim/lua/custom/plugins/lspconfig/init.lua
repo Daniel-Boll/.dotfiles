@@ -14,7 +14,7 @@ M.setup_lsp = function(attach, capabilities)
     "clangd",
     "bashls",
     "emmet_ls",
-    "tailwindcss"
+    -- "tailwindcss"
   }
 
   for _, lsp in ipairs(servers) do

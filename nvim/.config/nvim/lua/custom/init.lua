@@ -16,4 +16,4 @@ require("custom.mappings.telescope")
 require("custom.commands")
 
 ----------->>| INIT |<<-----------
--- require("custom.init")
+require("custom.enable")

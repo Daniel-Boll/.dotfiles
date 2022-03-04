@@ -19,7 +19,7 @@ M.plugins = {
     nvim_cmp = "custom.plugins.cmp",
     telescope = "custom.plugins.telescope",
   },
-  install = require "custom.plugins",
+  install = require("custom.plugins"),
 }
 
 return M

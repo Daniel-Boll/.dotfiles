@@ -45,6 +45,10 @@ local sources = {
 
   -- Java
   builtins.formatting.google_java_format,
+
+  builtins.formatting.clang_format.with({
+    filetypes = { "c", "cpp", "h", "hpp", "cc", "hh", "cxx", "hxx" },
+  }),
 }
 
 local M = {}

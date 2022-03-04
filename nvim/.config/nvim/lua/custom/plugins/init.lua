@@ -54,5 +54,13 @@ return {
       })
     end,
   },
+  -- {
+  --   "mvllow/modes.nvim",
+  --   config = function()
+  --     vim.opt.cursorline = true
+  --     require("modes").setup()
+  --   end,
+  -- },
+  { "iamcco/markdown-preview.nvim" },
   -- { "mg979/vim-visual-multi" },
 }
