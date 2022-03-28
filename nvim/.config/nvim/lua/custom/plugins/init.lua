@@ -63,4 +63,15 @@ return {
   -- },
   { "iamcco/markdown-preview.nvim" },
   -- { "mg979/vim-visual-multi" },
+  {
+    "s1n7ax/nvim-comment-frame",
+    requires = "nvim-treesitter",
+    config = function()
+      require("nvim-comment-frame").setup({
+        keymap = "<leader>.",
+        multiline_keymap = "<leader>b",
+      })
+    end,
+  },
+  { "gelguy/wilder.nvim" }
 }

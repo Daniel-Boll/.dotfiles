@@ -14,7 +14,6 @@ M.setup_lsp = function(attach, capabilities)
     "clangd",
     "bashls",
     "emmet_ls",
-    -- "tailwindcss"
   }
 
   for _, lsp in ipairs(servers) do
@@ -29,8 +28,24 @@ M.setup_lsp = function(attach, capabilities)
   end
 
   -- Specific configs
-  -- Typescript
+  -- SQL
+  -- lspconfig.sqlls.setup({
+  --   on_attach = attach,
+  --   capabilities = capabilities,
+  --   cmd = { "sql-language-server", "up", "--method", "stdio" },
+  --   root_dir = vim.loop.cwd,
+  --   filetypes = { "sql" },
+  -- })
 
+  -- Clangd
+  local clangCapabilities = capabilities
+  clangCapabilities.offsetEncoding = { "utf-16" }
+  lspconfig.clangd.setup({
+    capabilities = clangCapabilities,
+    on_attach = attach,
+  })
+
+  -- Typescript
   local function organize_imports()
     local params = {
       command = "_typescript.organizeImports",

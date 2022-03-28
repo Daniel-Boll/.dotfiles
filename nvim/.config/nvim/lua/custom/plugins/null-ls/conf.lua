@@ -49,6 +49,10 @@ local sources = {
   builtins.formatting.clang_format.with({
     filetypes = { "c", "cpp", "h", "hpp", "cc", "hh", "cxx", "hxx" },
   }),
+
+  builtins.formatting.pg_format.with({
+    filetypes = { "pgsql" },
+  }),
 }
 
 local M = {}
