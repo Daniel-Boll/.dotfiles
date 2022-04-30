@@ -14,6 +14,7 @@ require("custom.mappings.telescope")
 
 ----------->>| COMMANDS |<<-----------
 require("custom.commands")
+require("custom.commands.plugins_related.wilder")
 
 ----------->>| INIT |<<-----------
 require("custom.enable")

@@ -26,11 +26,11 @@ map(
 )
 
 -- Run
-map(
-  "n",
-  "<F5>",
-  '<CMD>lua require("FTerm").scratch({ cmd = "cat build.type | ./compile.sh" })<CR>'
-)
+-- map(
+--   "n",
+--   "<F5>",
+--   '<CMD>lua require("FTerm").scratch({ cmd = "cat build.type | ./compile.sh" })<CR>'
+-- )
 
 -- Run
 map(

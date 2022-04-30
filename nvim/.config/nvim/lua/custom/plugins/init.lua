@@ -32,37 +32,14 @@ return {
   { "nvim-telescope/telescope-media-files.nvim" },
   { "nvim-telescope/telescope-symbols.nvim" },
   { "nvim-telescope/telescope-ui-select.nvim" },
-  -- {
-  --   "p00f/clangd_extensions.nvim",
-  --   config = function()
-  --     require("clangd_extensions").setup({
-  --       server = {
-  --         capabilities = require "plugins.configs.lspconfig".capabilities,
-  --         on_attach = require "plugins.configs.lspconfig".on_attach,
-  --       }
-  --     })
-  --   end,
-  -- },
   {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
-      require("trouble").setup({
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      })
+      require("trouble").setup({})
     end,
   },
-  -- {
-  --   "mvllow/modes.nvim",
-  --   config = function()
-  --     vim.opt.cursorline = true
-  --     require("modes").setup()
-  --   end,
-  -- },
   { "iamcco/markdown-preview.nvim" },
-  -- { "mg979/vim-visual-multi" },
   {
     "s1n7ax/nvim-comment-frame",
     requires = "nvim-treesitter",
@@ -73,5 +50,18 @@ return {
       })
     end,
   },
-  { "gelguy/wilder.nvim" }
+  {
+    "gelguy/wilder.nvim",
+    config = function()
+      require("wilder").setup()
+    end,
+  },
+  { "tikhomirov/vim-glsl" },
+  { "tpope/vim-eunuch" }
+  -- {
+  --   "NvChad/nvterm",
+  --   config = function()
+  --     require("custom.plugins.nvterm.conf").setup()
+  --   end,
+  -- },
 }
