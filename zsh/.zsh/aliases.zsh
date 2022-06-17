@@ -25,5 +25,5 @@ yR() {
 
 update() {
   yay -Syu --noconfirm
-  kill -SIGUSR1 $(ps aux | grep bar.sh | sed -n '2p' | cut -d ' ' -f2)
+  kill -SIGUSR1 $(ps aux | grep bar.sh | grep bash | cut -d ' ' -f2)
 }

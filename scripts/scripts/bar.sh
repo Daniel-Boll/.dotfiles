@@ -61,8 +61,8 @@ mem() {
 
 wlan() {
   case "$(cat /sys/class/net/wl*/operstate 2>/dev/null)" in
-    up) printf "^c$black^ ^b$blue^  ^d^%s" ;;
-    down) printf "^c$black^ ^b$red^  ^d^%s" ;;
+    up) printf "^c$black^ ^b$blue^ " ;;
+    down) printf "^c$black^ ^b$red^ " ;;
   esac
 }
 
@@ -80,8 +80,8 @@ volume() {
 # Show disk used/disk capacity
 # Example: 43G/226G
 disk() {
-  printf "^c$white^ ^b$grey^  "
-  printf "^c$white^ $(df -h | awk '/^\/dev/ {print $3"/"$2}' | sed '2d')"
+  printf "^c$darkblue^ ^b$black^ "
+  printf "^c$darkblue^ ^b$black^%s" $(df -h | awk '/^\/dev/ {print $3" / "$2}' | sed '2d')
 }
 
 fetch_updates() {
@@ -96,5 +96,5 @@ while true; do
   trap "fetch_updates" SIGUSR1
 
   # sleep 1 && xsetroot -name "$(battery) $(brightness) $(cpu) $(mem) $(wlan) $(clock)"
-  sleep 1 && xsetroot -name "$updates $(battery) $(brightness)$(cpu) $(mem) $(wlan) $(volume) $(clock)"
+  sleep 1 && xsetroot -name "$updates $(battery) $(brightness)$(cpu) $(mem) $(wlan)$(disk) $(volume) $(clock)"
 done
