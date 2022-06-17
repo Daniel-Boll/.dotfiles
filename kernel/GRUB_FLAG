@@ -1,0 +1,1 @@
+usbcore.autosuspend=0 btusb.enable_autosuspend=0 i915.fastboot=1 quiet loglevel=3

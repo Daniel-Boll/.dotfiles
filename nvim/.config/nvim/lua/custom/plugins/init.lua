@@ -1,67 +1,45 @@
 return {
-  {
-    "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
-    config = function()
-      require("todo-comments").setup({})
-    end,
-  },
-  { "github/copilot.vim" },
-  { "numtostr/FTerm.nvim" },
-  {
-    "windwp/nvim-ts-autotag",
-    ft = { "html", "javascriptreact", "typescriptreact" },
+  ["windwp/nvim-ts-autotag"] = {
+    ft = { "html", "javascriptreact" },
     after = "nvim-treesitter",
-    config = function(attach, capabilities)
-      require("nvim-ts-autotag").setup({
-        server = {
-          attach = attach,
-          capabilities = capabilities,
-        },
-      })
+    config = function()
+      require("nvim-ts-autotag").setup()
     end,
   },
-  { "tpope/vim-surround" },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
+  ["jose-elias-alvarez/null-ls.nvim"] = {
     after = "nvim-lspconfig",
     config = function()
-      require("custom.plugins.null-ls.conf").setup()
+      require("custom.plugins.null-ls").setup()
     end,
   },
-  { "nvim-telescope/telescope-media-files.nvim" },
-  { "nvim-telescope/telescope-symbols.nvim" },
-  { "nvim-telescope/telescope-ui-select.nvim" },
-  {
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
+  ["nvim-telescope/telescope-media-files.nvim"] = {
+    after = "telescope.nvim",
     config = function()
-      require("trouble").setup({})
+      require("telescope").load_extension "media_files"
     end,
   },
-  { "iamcco/markdown-preview.nvim" },
-  {
-    "s1n7ax/nvim-comment-frame",
-    requires = "nvim-treesitter",
+  ["karb94/neoscroll.nvim"] = {
     config = function()
-      require("nvim-comment-frame").setup({
-        keymap = "<leader>.",
-        multiline_keymap = "<leader>b",
-      })
+      require("neoscroll").setup {
+        mappings = { "<C-u>", "<C-d>" },
+      }
     end,
   },
-  {
-    "gelguy/wilder.nvim",
+  ["andreadev-it/shade.nvim"] = {
+    module = "shade",
     config = function()
-      require("wilder").setup()
+      require("shade").setup {
+        overlay_opacity = 50,
+        opacity_step = 1,
+        exclude_filetypes = { "NvimTree" },
+      }
     end,
   },
-  { "tikhomirov/vim-glsl" },
-  { "tpope/vim-eunuch" }
-  -- {
-  --   "NvChad/nvterm",
-  --   config = function()
-  --     require("custom.plugins.nvterm.conf").setup()
-  --   end,
+  ["github/copilot.vim"] = {},
+  ["tpope/vim-surround"] = {},
+  ["mfussenegger/nvim-jdtls"] = {},
+  ["iamcco/markdown-preview.nvim"] = {},
+  -- ["hrsh7th/cmp-emoji"] = {
+  --   after = "cmp",
   -- },
 }

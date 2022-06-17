@@ -1,13 +1,7 @@
 local M = {}
 
-M.options = {
-  relativenumber = true,
-}
-
-M.ui = {
-  theme = "chadracula",
-  transparency = false,
-}
+local userPlugins = require "custom.plugins"
+local override = require "custom.override"
 
 M.plugins = {
   options = {
@@ -15,11 +9,33 @@ M.plugins = {
       setup_lspconf = "custom.plugins.lspconfig",
     },
   },
-  default_plugin_config_replace = {
-    nvim_cmp = "custom.plugins.cmp",
-    telescope = "custom.plugins.telescope",
+
+  override = {
+    ["kyazdani42/nvim-tree.lua"] = override.nvimtree,
+    ["nvim-treesitter/nvim-treesitter"] = override.treesitter,
+    ["akinsho/bufferline.nvim"] = override.bufferline,
   },
-  install = require("custom.plugins"),
+
+  user = userPlugins,
+
+  remove = {
+    "folke/which-key.nvim",
+  },
 }
+
+M.options = {
+  user = function()
+    vim.opt.relativenumber = true
+    vim.opt.wrap = true
+    vim.opt.scrolloff = 12
+  end,
+}
+
+M.ui = {
+  theme = "radium",
+  theme_toggle = { "radium", "one_light" },
+}
+
+M.mappings = require "custom.mappings"
 
 return M

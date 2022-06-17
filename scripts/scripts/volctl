@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+# A helper script to control the volume and notify the user the current volume
+
+# API definition:
+# volctl up - increase volume by 5%
+# volctl down - decrease volume by 5%
+# volctl toggle - toggle mute
+
+ACTION=$1
+
+get_volume() {
+    amixer get Master | grep -m 1 -o -E "[0-9]+%" | grep -o -E "[0-9]+"
+}
+
+case $ACTION in
+    up)
+        amixer -q sset Master 5%+ unmute
+        notify-send -t 1000 "Volume up" "Volume: $(get_volume)%"
+        ;;
+    down)
+        amixer -q sset Master 5%- unmute
+        notify-send -t 1000 "Volume down" "Volume: $(get_volume)%"
+        ;;
+    toggle)
+        pactl set-sink-mute 0 toggle
+        ;;
+    *)
+        echo "Usage: $0 {up|down|mute}"
+        exit 1
+        ;;
+esac
