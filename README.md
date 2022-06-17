@@ -7,7 +7,7 @@ My dotfiles for Artix Linux 🐧
 ---
 
 <p align="center">
-  <img src="https://github.com/Daniel-Boll/.dotfiles/blob/main/.images/screenshot.png" width=800>
+  <img src="https://raw.githubusercontent.com/Daniel-Boll/.dotfiles/main/.images/base.png" width=800>
 </p>
 
 ---
