@@ -15,6 +15,8 @@ alias glp="_git_log_prettily"
 
 alias sign-commit="git commit -S -s --amend --no-edit"
 
+alias pingle="ping 8.8.4.4"
+
 yS() {
   yay -Slq | fzf -m --preview 'cat <(yay -Si {1}) <(yay -F1 {1} | awk "{print \$2}")' | xargs -ro yay -S
 }
@@ -25,5 +27,5 @@ yR() {
 
 update() {
   yay -Syu --noconfirm
-  kill -SIGUSR1 $(ps aux | grep bar.sh | grep bash | cut -d ' ' -f2)
+  kill -SIGUSR1 $(ps aux | grep bar.sh | grep bash | cut -d ' ' -f3)
 }

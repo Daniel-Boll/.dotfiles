@@ -1,0 +1,24 @@
+#!/bin/sh
+
+PDF_PATH="$HOME/books"
+
+select_book() {
+  # List all .pdf files and directories
+  files=$(/usr/bin/ls -A "$PDF_PATH")
+
+  # Use dmenu to select a file
+  selected=$(echo "$files" | dmenu -i -p "Select a book:")
+
+  # If the user selected a directory, call this function again
+  if [ -d "$PDF_PATH/$selected" ]; then
+    PDF_PATH="$PDF_PATH/$selected"
+    select_book
+  else
+    # Otherwise, open the file
+    zathura "$PDF_PATH/$selected"
+  fi
+}
+
+select_book
+
+exit 0
