@@ -26,7 +26,7 @@ M.plugins = {
 M.options = {
   user = function()
     vim.opt.relativenumber = true
-    vim.opt.wrap = true
+    vim.opt.wrap = false
     vim.opt.scrolloff = 12
   end,
 }
@@ -34,6 +34,7 @@ M.options = {
 M.ui = {
   theme = "radium",
   theme_toggle = { "radium", "one_light" },
+  -- transparency = true
 }
 
 M.mappings = require "custom.mappings"
