@@ -1,0 +1,12 @@
+[user]
+  email = danielboll.academico@gmail.com
+  name = Daniel Boll
+  signingkey = # GPG key here.
+[gpg]
+  program = gpg2
+[mergetool "nvim"]
+  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[merge]
+  tool = nvim
+[mergetool]
+  prompt = false
