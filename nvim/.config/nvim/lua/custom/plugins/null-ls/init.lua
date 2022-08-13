@@ -71,7 +71,7 @@ local sources = {
   builtins.diagnostics.hadolint,
 
   -- gRPC
-  builtins.diagnostics.protolint
+  builtins.diagnostics.protolint,
 }
 
 local M = {}

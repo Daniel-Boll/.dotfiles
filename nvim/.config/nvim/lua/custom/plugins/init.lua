@@ -25,29 +25,30 @@ return {
       }
     end,
   },
-  ["andreadev-it/shade.nvim"] = {
-    module = "shade",
+  ["folke/todo-comments.nvim"] = {
+    requires = "nvim-lua/plenary.nvim",
     config = function()
-      require("shade").setup {
-        overlay_opacity = 50,
-        opacity_step = 1,
-        exclude_filetypes = { "NvimTree" },
-      }
+      require("todo-comments").setup {}
     end,
   },
-  ["rmagatti/auto-session"] = {
+  ["kylechui/nvim-surround"] = {
     config = function()
-      require("auto-session").setup {
-        log_level = "info",
-        auto_session_suppress_dirs = { "~/" },
-      }
+      require("nvim-surround").setup {}
     end,
   },
-  ["github/copilot.vim"] = {},
-  ["tpope/vim-surround"] = {},
-  ["mfussenegger/nvim-jdtls"] = {},
+  ["neovim/nvim-lspconfig"] = {
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.plugins.lspconfig"
+    end,
+  },
+  ["mfussenegger/nvim-dap"] = {
+    config = function()
+      require("custom.plugins.dap").setup()
+    end,
+  },
   ["iamcco/markdown-preview.nvim"] = {},
-  -- ["hrsh7th/cmp-emoji"] = {
-  --   after = "cmp",
-  -- },
+  ["tpope/vim-fugitive"] = {},
+  ["mfussenegger/nvim-jdtls"] = {},
+  ["github/copilot.vim"] = {},
 }

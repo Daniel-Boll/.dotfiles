@@ -4,12 +4,6 @@ local userPlugins = require "custom.plugins"
 local override = require "custom.override"
 
 M.plugins = {
-  options = {
-    lspconfig = {
-      setup_lspconf = "custom.plugins.lspconfig",
-    },
-  },
-
   override = {
     ["kyazdani42/nvim-tree.lua"] = override.nvimtree,
     ["nvim-treesitter/nvim-treesitter"] = override.treesitter,
@@ -21,14 +15,6 @@ M.plugins = {
   remove = {
     "folke/which-key.nvim",
   },
-}
-
-M.options = {
-  user = function()
-    vim.opt.relativenumber = true
-    vim.opt.wrap = false
-    vim.opt.scrolloff = 12
-  end,
 }
 
 M.ui = {
