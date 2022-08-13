@@ -14,8 +14,12 @@ alias gloga='git log --oneline --decorate --graph --all'
 alias glp="_git_log_prettily"
 
 alias sign-commit="git commit -S -s --amend --no-edit"
-
 alias pingle="ping 8.8.4.4"
+
+alias nvim="nvim +':Telescope find_files'"
+alias vim="nvim"
+alias e="nvim"
+alias open="nvim"
 
 yS() {
   yay -Slq | fzf -m --preview 'cat <(yay -Si {1}) <(yay -F1 {1} | awk "{print \$2}")' | xargs -ro yay -S

@@ -9,3 +9,11 @@ done
 
 unset CONF_DIR
 unset conf
+
+# pnpm
+export PNPM_HOME="/home/danielboll/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+# >>> xmake >>>
+[[ -s "$HOME/.xmake/profile" ]] && source "$HOME/.xmake/profile" # load xmake profile
+# <<< xmake <<<

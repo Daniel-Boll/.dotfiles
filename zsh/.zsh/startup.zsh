@@ -6,8 +6,9 @@ if [[ ! $(tmux ls) ]] 2> /dev/null; then
   tmux new -s ﬦ
 fi
 
-# Check if are not attached to a tmux session and then attach to one. Use $TMUX variable to check
-if [[ -z $TMUX ]]; then
+has_instance_of_st=$(ps -A | awk '{print $4}' | grep '^st$' | wc -l)
+# If there is only one instance of st, then it is the one we want to use.
+if [[ $has_instance_of_st -eq 1 ]] && [[ -z $TMUX ]]; then
   tmux attach
 fi
 
