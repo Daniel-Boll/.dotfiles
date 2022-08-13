@@ -1,7 +1,7 @@
 [user]
   email = danielboll.academico@gmail.com
   name = Daniel Boll
-  signingkey = # GPG key here.
+  signingkey = A83245AD141A70E3
 [gpg]
   program = gpg2
 [mergetool "nvim"]
@@ -10,3 +10,5 @@
   tool = nvim
 [mergetool]
   prompt = false
+[init]
+	defaultBranch = main
