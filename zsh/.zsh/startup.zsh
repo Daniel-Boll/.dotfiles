@@ -2,6 +2,10 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
   exec startx -- vt1 &> /var/log/dwm
 fi
 
+if [[ $(tty) = /dev/tty2 ]]; then
+  exec startx /usr/bin/startxfce4 -- :1 vt2
+fi
+
 if [[ ! $(tmux ls) ]] 2> /dev/null; then
   tmux new -s ﬦ
 fi

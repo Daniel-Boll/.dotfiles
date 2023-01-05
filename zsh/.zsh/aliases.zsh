@@ -16,10 +16,12 @@ alias glp="_git_log_prettily"
 alias sign-commit="git commit -S -s --amend --no-edit"
 alias pingle="ping 8.8.4.4"
 
-alias nvim="nvim +':Telescope find_files'"
+alias nvim="nvim"
 alias vim="nvim"
-alias e="nvim"
-alias open="nvim"
+alias e="nvim +':Telescope find_files'"
+alias open="nvim +':Telescope find_files'"
+
+alias peak="./build/linux/x86_64/release/peak"
 
 yS() {
   yay -Slq | fzf -m --preview 'cat <(yay -Si {1}) <(yay -F1 {1} | awk "{print \$2}")' | xargs -ro yay -S
@@ -32,4 +34,11 @@ yR() {
 update() {
   yay -Syu --noconfirm
   kill -SIGUSR1 $(ps aux | grep bar.sh | grep bash | cut -d ' ' -f3)
+}
+
+compile() {
+  xmake && xmake project -k compile_commands
+  if [ "$1" = "r" ] || [ "$1" = "run" ]; then
+    xmake run $2
+  fi
 }

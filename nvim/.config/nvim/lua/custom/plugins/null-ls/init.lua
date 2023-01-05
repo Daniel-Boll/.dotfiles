@@ -35,8 +35,12 @@ local sources = {
   builtins.formatting.shfmt,
   builtins.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
   builtins.code_actions.shellcheck,
+
   -- Rust
   builtins.formatting.rustfmt,
+  -- builtins.formatting.rustfmt.with {
+  --   extra_args = { "--edition=2021", "--config tab_spaces=2" },
+  -- },
 
   -- Cmake
   builtins.formatting.cmake_format.with {
@@ -65,13 +69,27 @@ local sources = {
 
   -- Java
   -- builtins.formatting.google_java_format,
-  builtins.diagnostics.semgrep,
+  -- builtins.diagnostics.semgrep,
 
   -- Docker
   builtins.diagnostics.hadolint,
 
   -- gRPC
   builtins.diagnostics.protolint,
+
+  -- Golang
+  builtins.formatting.goimports,
+  builtins.diagnostics.golangci_lint,
+
+  -- Zig
+  builtins.formatting.zigfmt,
+
+  -- Elixir
+  builtins.diagnostics.credo,
+  builtins.formatting.mix,
+
+  -- Prisma
+  builtins.formatting.prismaFmt,
 }
 
 local M = {}

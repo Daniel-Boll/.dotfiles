@@ -1,5 +1,12 @@
 #!/bin/zsh
 
+# The following lines were added by compinstall
+zstyle ':completion:*' completer _complete _ignored
+zstyle :compinstall filename '/home/danielboll/.zshrc'
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
 CONF_DIR="$HOME/.zsh"
 [ -f "$CONF_DIR/startup.zsh" ] && source "$CONF_DIR/startup.zsh"
 
@@ -10,10 +17,12 @@ done
 unset CONF_DIR
 unset conf
 
-# pnpm
-export PNPM_HOME="/home/danielboll/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/danielboll/dev/ctf/google-cloud-sdk/path.zsh.inc' ]; then . '/home/danielboll/dev/ctf/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/danielboll/dev/ctf/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/danielboll/dev/ctf/google-cloud-sdk/completion.zsh.inc'; fi
+
 # >>> xmake >>>
 [[ -s "$HOME/.xmake/profile" ]] && source "$HOME/.xmake/profile" # load xmake profile
 # <<< xmake <<<

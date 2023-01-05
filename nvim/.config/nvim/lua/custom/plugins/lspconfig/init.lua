@@ -8,11 +8,14 @@ local servers = {
   "html",
   "cssls",
   "pyright",
-  "rust_analyzer",
   "sumneko_lua",
   "clangd",
   "bashls",
   "asm_lsp",
+  "gopls",
+  "zls",
+  "tailwindcss",
+  "prismals"
 }
 
 for _, lsp in ipairs(servers) do
@@ -24,6 +27,11 @@ for _, lsp in ipairs(servers) do
       debounce_text_changes = 150,
     },
   }
+
+  if lsp == "tailwindcss" then
+    require("telescope").load_extension "tailiscope"
+    vim.keymap.set("n", "<leader>tw", "<cmd>Telescope tailiscope<cr>")
+  end
 end
 
 -- Clangd
@@ -59,20 +67,31 @@ lspconfig.tsserver.setup {
 }
 
 -- Unity
--- local pid = vim.fn.getpid()
---
--- lspconfig.omnisharp.setup {
---   cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(pid) },
---   root_dir = lspconfig.util.root_pattern("*.csproj", "*.sln"),
---   on_attach = attach,
---   capabilities = capabilities,
--- }
+local pid = vim.fn.getpid()
+local omnisharp_bin = vim.fn.stdpath "data" .. "/mason/bin/omnisharp-mono"
+
+lspconfig.omnisharp.setup {
+  cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
+  root_dir = lspconfig.util.root_pattern("*.csproj", "*.sln"),
+  on_attach = attach,
+  capabilities = capabilities,
+}
 
 -- Java
--- lspconfig.jdtls.setup {
---   on_attach = attach,
---   capabilities = capabilities,
---   cmd = { "jdtls" },
---   root_dir = lspconfig.util.root_pattern("pom.xml", "*.java"),
---   single_file_support = true,
--- }
+lspconfig.jdtls.setup {
+  on_attach = attach,
+  capabilities = capabilities,
+  cmd = { "jdtls" },
+  root_dir = lspconfig.util.root_pattern("pom.xml", "*.java"),
+  single_file_support = true,
+  progressReportProvider = true,
+}
+
+-- Elixir
+local elixir_bin = vim.fn.stdpath "data" .. "/mason/bin/elixir-ls"
+
+lspconfig.elixirls.setup {
+  on_attach = attach,
+  capabilities = capabilities,
+  cmd = { elixir_bin },
+}

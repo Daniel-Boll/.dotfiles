@@ -54,6 +54,50 @@ export GPG_TTY=$(tty)
 #####################
 source $HOME/.cargo/env
 
-# >>> xmake >>>
+#####################
+# PNPM              #
+#####################
+export PNPM_HOME="/home/danielboll/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
+#####################
+# XMAKE             #
+#####################
 [[ -s "$HOME/.xmake/profile" ]] && source "$HOME/.xmake/profile" # load xmake profile
-# <<< xmake <<<
+
+#####################
+# TERRAFORM         #
+#####################
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
+
+#####################
+# WASI_SDK          #
+#####################
+export WASI_VERSION=14
+export WASI_VERSION_FULL=${WASI_VERSION}.0
+export WASI_SDK_PATH=$HOME/wasi-sdk/wasi-sdk-${WASI_VERSION_FULL}
+
+#####################
+# JFLAP             #
+#####################
+export AWT_TOOLKIT="MToolkit"
+
+#####################
+# SSH-AGENT         #
+#####################
+runcount=$(ps -ef | grep "ssh-agent" | grep -v "grep" | wc -l)
+if [ $runcount -eq 0 ]; then
+  eval `ssh-agent -s`
+
+  ssh-add -l &>/dev/null
+  if [ $? -ne 0 ]; then
+    ssh-add -t 1d
+    ssh-add -t 1d ~/.ssh/smartbr_ed25519
+  fi
+fi
+
+#####################
+# BINARYEN          #
+#####################
+export PATH="$HOME/wasi-sdk/binaryen/bin:$PATH"

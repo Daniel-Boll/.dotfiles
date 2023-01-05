@@ -22,3 +22,9 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # Better vi mode
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
+
+zinit light zdharma-continuum/history-search-multi-word
+
+# B.
+zinit wait lucid for \
+        OMZL::git.zsh

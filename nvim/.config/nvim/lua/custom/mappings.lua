@@ -6,23 +6,15 @@ M.telescope = {
   },
 }
 
-M.copilot = {
-  i = {
-    ["<C-j>"] = {
-      'copilot#Accept("<CR>")',
-      "ﮧ  copilot completion",
-      opts = {
-        silent = true,
-        script = true,
-        expr = true,
-      },
-    },
-  },
-}
-
 M.general = {
   n = {
     ["<ESC>"] = { "<cmd> noh <CR>", "Remove Highlights" },
+  },
+}
+
+M.rc = {
+  n = {
+    ["<leader>r"] = { "<cmd>lua require('rust-tools').runnables.runnables() <CR>", "  runnables" },
   },
 }
 
@@ -34,8 +26,5 @@ M.dap = {
     ["<leader>i"] = { "<cmd>lua require('dap').step_into() <CR>", "  breakpoint" },
   },
 }
-
--- vim.g.copilot_no_tab_map = true
--- vim.g.copilot_assume_mapped = true
 
 return M

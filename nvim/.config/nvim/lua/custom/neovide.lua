@@ -1,3 +1,0 @@
--- print("neovide.lua: guifont set to " .. vim.g.neovide.guifont)
--- vim.g.guifont = "Iosevka Nerd Term:h12"
--- vim.g.neovide_refresh_rate = 140
