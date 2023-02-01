@@ -21,8 +21,8 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 #####################
 # NVM               #
 #####################
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 #####################
 # ZOXIDE            #
@@ -52,7 +52,8 @@ export GPG_TTY=$(tty)
 #####################
 # CARGO             #
 #####################
-source $HOME/.cargo/env
+# source $HOME/.cargo/env
+export PATH="$HOME/.cargo/bin:$PATH"
 
 #####################
 # PNPM              #
@@ -68,20 +69,20 @@ export PATH="$PNPM_HOME:$PATH"
 #####################
 # TERRAFORM         #
 #####################
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/bin/terraform terraform
+# autoload -U +X bashcompinit && bashcompinit
+# complete -o nospace -C /usr/bin/terraform terraform
 
 #####################
 # WASI_SDK          #
 #####################
-export WASI_VERSION=14
-export WASI_VERSION_FULL=${WASI_VERSION}.0
-export WASI_SDK_PATH=$HOME/wasi-sdk/wasi-sdk-${WASI_VERSION_FULL}
+# export WASI_VERSION=14
+# export WASI_VERSION_FULL=${WASI_VERSION}.0
+# export WASI_SDK_PATH=$HOME/wasi-sdk/wasi-sdk-${WASI_VERSION_FULL}
 
 #####################
-# JFLAP             #
+# BINARYEN          #
 #####################
-export AWT_TOOLKIT="MToolkit"
+# export PATH="$HOME/wasi-sdk/binaryen/bin:$PATH"
 
 #####################
 # SSH-AGENT         #
@@ -98,6 +99,6 @@ if [ $runcount -eq 0 ]; then
 fi
 
 #####################
-# BINARYEN          #
+# ASDF		    #
 #####################
-export PATH="$HOME/wasi-sdk/binaryen/bin:$PATH"
+. "$HOME/.asdf/asdf.sh"

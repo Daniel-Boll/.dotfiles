@@ -16,13 +16,3 @@ done
 
 unset CONF_DIR
 unset conf
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/danielboll/dev/ctf/google-cloud-sdk/path.zsh.inc' ]; then . '/home/danielboll/dev/ctf/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/danielboll/dev/ctf/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/danielboll/dev/ctf/google-cloud-sdk/completion.zsh.inc'; fi
-
-# >>> xmake >>>
-[[ -s "$HOME/.xmake/profile" ]] && source "$HOME/.xmake/profile" # load xmake profile
-# <<< xmake <<<

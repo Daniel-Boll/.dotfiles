@@ -3,16 +3,19 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
 fi
 
 if [[ $(tty) = /dev/tty2 ]]; then
-  exec startx /usr/bin/startxfce4 -- :1 vt2
+  exec startx /usr/bin/awesome -- :1 vt2
 fi
 
 if [[ ! $(tmux ls) ]] 2> /dev/null; then
   tmux new -s ﬦ
 fi
 
-has_instance_of_st=$(ps -A | awk '{print $4}' | grep '^st$' | wc -l)
-# If there is only one instance of st, then it is the one we want to use.
-if [[ $has_instance_of_st -eq 1 ]] && [[ -z $TMUX ]]; then
+# Find and divide the number os instances of kitty by 2, because each instance of kitty has two processes.
+has_instance_of_kitty=$(ps -A | awk '{print $4}' | grep 'kitty' | wc -l)
+has_instance_of_kitty=$((has_instance_of_kitty / 2))
+
+# If there is only one instance of kitty, then it is the one we want to use.
+if [[ $has_instance_of_kitty -eq 1 ]] && [[ -z $TMUX ]]; then
   tmux attach
 fi
 
