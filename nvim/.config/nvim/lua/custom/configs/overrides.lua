@@ -3,20 +3,26 @@ local M = {}
 M.treesitter = {
   ensure_installed = {
     "vim",
+    "lua",
     "html",
     "css",
-    "tsx",
     "javascript",
-    "typescript",
-    "json",
-    "toml",
-    "markdown",
     "c",
-    "cpp",
+    "markdown",
+    "markdown_inline",
+    "json",
+    "json5",
+    "jsonc",
+    "typescript",
+    "tsx",
+    "rust",
     "bash",
-    "lua",
-    "norg",
-    "java",
+  },
+  indent = {
+    enable = true,
+    disable = {
+      "python",
+    },
   },
 }
 
@@ -26,26 +32,18 @@ M.mason = {
     "lua-language-server",
     "stylua",
 
-    -- web dev
+    -- web dev stuff
     "css-lsp",
     "html-lsp",
     "typescript-language-server",
     "deno",
-    "emmet-ls",
-    "json-lsp",
-
-    -- shell
-    "shfmt",
-    "shellcheck",
-
-    -- Rust
+    "prettierd",
     "rust-analyzer",
-
-    -- Cpp
-    "clangd",
-  }
+    "rust-fmt",
+  },
 }
 
+-- git support in nvimtree
 M.nvimtree = {
   git = {
     enable = true,
@@ -57,14 +55,6 @@ M.nvimtree = {
       show = {
         git = true,
       },
-    },
-  },
-}
-
-M.telescope = {
-  extensions = {
-    media_files = {
-      filetypes = { "png", "webp", "jpg", "jpeg", "pdf" },
     },
   },
 }
