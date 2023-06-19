@@ -23,8 +23,11 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
 
-zinit light zdharma-continuum/history-search-multi-word
+# zinit light zdharma-continuum/history-search-multi-word
 
-# B.
+# Git aliases
 zinit wait lucid for \
         OMZL::git.zsh
+
+zinit ice wait lucid
+zinit light ellie/atuin

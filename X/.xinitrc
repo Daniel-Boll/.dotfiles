@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto
+
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
 	for f in /etc/X11/xinit/xinitrc.d/?*.sh; do
 		[ -x "$f" ] && . "$f"
@@ -12,6 +15,14 @@ if pgrep -x dunst; then
 	killall dunst
 fi
 
+if pgrep -x picom; then
+	killall picom
+fi
+
+if pgrep -x sxhkd; then
+	killall sxhkd
+fi
+
 xset b off
 
 # Light
@@ -22,12 +33,15 @@ pulseaudio --start &
 
 # Keyboard
 xset r rate 230 45
-xmodmap ~/.Xmodmap
+# xmodmap ~/.Xmodmap
 
 # Notification daemon
 dunst &
 
-$HOME/scripts/bar.sh onedark 2 &>/dev/null &
+# Keybinds
+sxhkd &
+
+"$HOME/scripts/bar.sh" onedark 2 &>/dev/null &
 
 # Set slock
 xset dpms 300 &

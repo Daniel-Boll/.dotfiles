@@ -17,7 +17,7 @@ alias sign-commit="git commit -S -s --amend --no-edit"
 alias pingle="ping 8.8.4.4"
 
 alias nvim="nvim"
-alias vim="nvim"
+alias vim="vim"
 alias e="nvim +':Telescope find_files'"
 alias open="nvim +':Telescope find_files'"
 

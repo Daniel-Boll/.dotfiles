@@ -19,12 +19,6 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 #####################
-# NVM               #
-#####################
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-#####################
 # ZOXIDE            #
 #####################
 eval "$(zoxide init zsh)"
@@ -37,7 +31,7 @@ eval "$(starship init zsh)"
 #####################
 # NEOVIM            #
 #####################
-export PATH="$HOME/.local/share/neovim/bin:$PATH"
+export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 
 #####################
 # SCRIPTS           #
@@ -52,14 +46,12 @@ export GPG_TTY=$(tty)
 #####################
 # CARGO             #
 #####################
-# source $HOME/.cargo/env
 export PATH="$HOME/.cargo/bin:$PATH"
 
 #####################
-# PNPM              #
+# GO                #
 #####################
-export PNPM_HOME="/home/danielboll/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
 #####################
 # XMAKE             #
@@ -87,18 +79,57 @@ export PATH="$PNPM_HOME:$PATH"
 #####################
 # SSH-AGENT         #
 #####################
-runcount=$(ps -ef | grep "ssh-agent" | grep -v "grep" | wc -l)
-if [ $runcount -eq 0 ]; then
-  eval `ssh-agent -s`
-
-  ssh-add -l &>/dev/null
-  if [ $? -ne 0 ]; then
-    ssh-add -t 1d
-    ssh-add -t 1d ~/.ssh/smartbr_ed25519
-  fi
+# Start ssh-agent and add SSH key
+if [ ! -S ~/.ssh/ssh_auth_sock ]; then
+  eval `ssh-agent`
+  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+  ssh-add ~/.ssh/id_ed25519 2> /dev/null
 fi
 
+# Set SSH_AUTH_SOCK environment variable
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+
 #####################
-# ASDF		    #
+# ASDF		          #
 #####################
 . "$HOME/.asdf/asdf.sh"
+
+#####################
+# AWS 		          #
+#####################
+export AWS_ACCESS_KEY_ID=$(stoml ~/.aws/credentials default.aws_access_key_id)
+export AWS_SECRET_ACCESS_KEY=$(stoml ~/.aws/credentials default.aws_secret_access_key)
+
+#####################
+# GH Copilot CLI    #
+#####################
+eval "$(github-copilot-cli alias -- "$0")"
+
+
+#####################
+# Oracle DB (Smart) #
+#####################
+# export TNS_ADMIN=/etc/tnsnames.ora
+
+#####################
+# Pulumi            #
+#####################
+export PATH=$PATH:$HOME/.pulumi/bin
+
+#####################
+# Wasmer            #
+#####################
+export WASMER_DIR="/home/danielboll/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
+export WASMTIME_HOME="$HOME/.wasmtime"
+export PATH="$WASMTIME_HOME/bin:$PATH"
+
+#####################
+# Conda             #
+#####################
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+
+#####################
+# Atuin             #
+#####################
+eval "$(atuin init zsh)"
