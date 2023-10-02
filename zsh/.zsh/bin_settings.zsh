@@ -151,3 +151,9 @@ export PATH="$WASMTIME_HOME/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun completions
+[ -s "/home/danielboll/.bun/_bun" ] && source "/home/danielboll/.bun/_bun"
+# >>> xmake >>>
+test -f "/home/danielboll/.xmake/profile" && source "/home/danielboll/.xmake/profile"
+# <<< xmake <<<
