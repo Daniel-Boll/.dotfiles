@@ -127,9 +127,27 @@ export PATH="$WASMTIME_HOME/bin:$PATH"
 #####################
 # Conda             #
 #####################
-[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+# [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
 #####################
 # Atuin             #
 #####################
-eval "$(atuin init zsh)"
+# eval "$(atuin init zsh)"
+
+#####################
+# Pyenv             #
+#####################
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+
+
+#####################
+# Bun               #
+#####################
+# bun completions
+[ -s "/home/danielboll/.bun/_bun" ] && source "/home/danielboll/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

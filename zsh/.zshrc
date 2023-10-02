@@ -9,3 +9,9 @@ done
 
 unset CONF_DIR
 unset conf
+
+# bun completions
+[ -s "/home/danielboll/.bun/_bun" ] && source "/home/danielboll/.bun/_bun"
+# >>> xmake >>>
+test -f "/home/danielboll/.xmake/profile" && source "/home/danielboll/.xmake/profile"
+# <<< xmake <<<

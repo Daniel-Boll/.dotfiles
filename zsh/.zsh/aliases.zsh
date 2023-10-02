@@ -1,6 +1,6 @@
 # vim:ft=bash
 
-alias ls="exa --long --git"
+alias ls="eza --long --git --icons"
 alias md="mkdir -p"
 alias rf="rm -rf"
 
@@ -20,6 +20,8 @@ alias nvim="nvim"
 alias vim="vim"
 alias e="nvim +':Telescope find_files'"
 alias open="nvim +':Telescope find_files'"
+
+alias lvim="NVIM_APPNAME=nvim_lazyvim nvim"
 
 alias peak="./build/linux/x86_64/release/peak"
 
@@ -54,4 +56,8 @@ dcl() {
 
 dce() {
   docker-compose exec -it $1 $2
+}
+
+package-scripts() {
+  cat package.json | jq ".scripts"
 }
