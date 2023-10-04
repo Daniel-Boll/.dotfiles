@@ -95,9 +95,9 @@ display_layout() {
 	variant=$(setxkbmap -query | grep -oP 'variant:\s*\K\w+')
 
 	if [ -z "$variant" ]; then
-		printf "^c$black^ ^b$green^ 🇺🇸"
+		printf "^c$black^ ^b$green^  "
 	else
-		printf "^c$black^ ^b$green^ 🇧🇷"
+		printf "^c$black^ ^b$green^  "
 	fi
 }
 
