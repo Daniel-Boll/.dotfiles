@@ -1,0 +1,48 @@
+# Terminal
+super + Return
+  kitty
+
+# Keyboard
+super + y
+  $HOME/scripts/swap-layout.sh
+
+# Launchers
+super + r
+  $HOME/.config/rofi/scripts/launcher_t7
+
+super + x
+  $HOME/.config/rofi/scripts/powermenu_t5
+
+# Utilities
+
+super + e
+  rofi -show emoji
+
+super + shift + e
+  pcmanfm ~
+
+super + s
+  maim -s | xclip -selection clipboard -t image/png
+
+super + o
+  $HOME/scripts/dmenu-zathura
+
+super + p
+  passmenu
+
+super + w
+	rofi -show window
+
+XF86AudioRaiseVolume
+  $HOME/scripts/volctl up
+
+XF86AudioLowerVolume
+  $HOME/scripts/volctl down
+
+XF86AudioForward
+  dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+
+XF86AudioRewind
+  dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+
+# vim: ft=sxhkdrc
