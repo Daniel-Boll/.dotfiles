@@ -91,6 +91,16 @@ fetch_updates() {
 	updates=$(pkg_updates)
 }
 
+display_layout() {
+	variant=$(setxkbmap -query | grep -oP 'variant:\s*\K\w+')
+
+	if [ -z "$variant" ]; then
+		printf "^c$black^ ^b$green^ 🇺🇸"
+	else
+		printf "^c$black^ ^b$green^ 🇧🇷"
+	fi
+}
+
 while true; do
 	[ $(($interval % 3600)) = 1 ] && updates=$(pkg_updates)
 	interval=$((interval + 1))
@@ -98,5 +108,5 @@ while true; do
 	trap "fetch_updates" SIGUSR1
 
 	# sleep 1 && xsetroot -name "$(battery) $(brightness) $(cpu) $(mem) $(wlan) $(clock)"
-	sleep 1 && xsetroot -name "$updates $(kernel) $(battery) $(brightness)$(cpu) $(mem) $(wlan)$(disk) $(volume) $(clock)"
+	sleep 1 && xsetroot -name "$updates $(kernel) $(battery) $(brightness)$(cpu) $(mem) $(wlan)$(disk) $(volume) $(clock) $(display_layout)"
 done

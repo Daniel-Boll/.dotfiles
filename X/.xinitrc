@@ -33,7 +33,7 @@ pulseaudio --start &
 
 # Keyboard
 xset r rate 230 45
-setxkbmap -layout us -variant intl
+setxkbmap -layout us
 # xmodmap ~/.Xmodmap
 
 # Notification daemon
