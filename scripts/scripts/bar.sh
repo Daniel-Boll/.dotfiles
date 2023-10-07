@@ -95,9 +95,9 @@ display_layout() {
 	variant=$(setxkbmap -query | grep -oP 'variant:\s*\K\w+')
 
 	if [ -z "$variant" ]; then
-		printf "^c$black^ ^b$green^  "
+		printf "^c$black^ ^b$green^ US"
 	else
-		printf "^c$black^ ^b$green^  "
+		printf "^c$black^ ^b$green^ BR"
 	fi
 }
 
@@ -108,5 +108,5 @@ while true; do
 	trap "fetch_updates" SIGUSR1
 
 	# sleep 1 && xsetroot -name "$(battery) $(brightness) $(cpu) $(mem) $(wlan) $(clock)"
-	sleep 1 && xsetroot -name "$updates $(kernel) $(battery) $(brightness)$(cpu) $(mem) $(wlan)$(disk) $(volume) $(clock) $(display_layout)"
+	sleep 1 && xsetroot -name "$updates $(kernel) $(battery) $(brightness)$(cpu) $(mem) $(wlan)$(disk) $(volume) $(clock)$(display_layout)"
 done

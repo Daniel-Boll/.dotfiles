@@ -157,3 +157,9 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # >>> xmake >>>
 test -f "/home/danielboll/.xmake/profile" && source "/home/danielboll/.xmake/profile"
 # <<< xmake <<<
+
+export PNPM_HOME="/home/danielboll/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
