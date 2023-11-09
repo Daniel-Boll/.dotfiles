@@ -132,7 +132,7 @@ export PATH="$WASMTIME_HOME/bin:$PATH"
 #####################
 # Atuin             #
 #####################
-# eval "$(atuin init zsh)"
+eval "$(atuin init zsh)"
 
 #####################
 # Pyenv             #
@@ -154,9 +154,8 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # bun completions
 [ -s "/home/danielboll/.bun/_bun" ] && source "/home/danielboll/.bun/_bun"
-# >>> xmake >>>
+
 test -f "/home/danielboll/.xmake/profile" && source "/home/danielboll/.xmake/profile"
-# <<< xmake <<<
 
 export PNPM_HOME="/home/danielboll/.local/share/pnpm"
 case ":$PATH:" in
