@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+script_path=$(which bar.sh)
+current_config="onedark 2"
+
+# Send the signal SIGUSR1 to the bar process
+pkill -USR1 -x -f "bash $script_path $current_config"
