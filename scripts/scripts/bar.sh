@@ -47,7 +47,6 @@ battery() {
 brightness() {
 	current_brightness=$(cat /sys/class/backlight/intel_backlight/brightness)
 	max_brightness=$(cat /sys/class/backlight/intel_backlight/max_brightness)
-	# calculate the percentage of brightness
 	brightness_percentage=$((current_brightness * 100 / max_brightness))
 
 	printf "^c$red^  "
