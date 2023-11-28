@@ -22,7 +22,10 @@ super + shift + e
   pcmanfm ~
 
 super + s
-  maim -s | xclip -selection clipboard -t image/png
+  flameshot gui -c -s
+
+super + shift + s
+  flameshot gui -c
 
 super + o
   $HOME/scripts/dmenu-zathura

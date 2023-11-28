@@ -103,7 +103,7 @@ export AWS_SECRET_ACCESS_KEY=$(stoml ~/.aws/credentials default.aws_secret_acces
 #####################
 # GH Copilot CLI    #
 #####################
-eval "$(github-copilot-cli alias -- "$0")"
+# eval "$(github-copilot-cli alias -- "$0")"
 
 
 #####################

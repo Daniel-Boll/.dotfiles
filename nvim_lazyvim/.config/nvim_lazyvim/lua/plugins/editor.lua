@@ -88,6 +88,10 @@ return {
       end,
     },
   },
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+  },
 
   -- add any tools you want to have installed below
   {
@@ -109,4 +113,60 @@ return {
     end,
   },
   { "folke/todo-comments.nvim" },
+
+  {
+    "toppair/peek.nvim",
+    build = "deno task --quiet build:fast",
+    event = { "BufRead", "BufNewFile" },
+    keys = {
+      {
+        "<leader>op",
+        function()
+          local peek = require("peek")
+          if peek.is_open() then
+            peek.close()
+          else
+            peek.open()
+          end
+        end,
+        desc = "Peek (Markdown Preview)",
+      },
+    },
+    opts = { theme = "dark", app = "browser" },
+  },
+
+  {
+    "smoka7/multicursors.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "smoka7/hydra.nvim",
+    },
+    opts = {},
+    cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
+    keys = {
+      {
+        mode = { "v", "n" },
+        "<Leader>m",
+        "<cmd>MCstart<cr>",
+        desc = "Create a selection for selected text or word under the cursor",
+      },
+    },
+  },
+
+  {
+    "folke/noice.nvim",
+    opts = function(_, opts)
+      table.insert(opts.routes, {
+        filter = {
+          event = "notify",
+          find = "No information available",
+        },
+        opts = {
+          skip = true,
+        },
+      })
+
+      opts.presets.lsp_doc_border = true
+    end,
+  },
 }

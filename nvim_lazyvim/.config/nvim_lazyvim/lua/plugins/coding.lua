@@ -25,7 +25,7 @@ return {
     optional = true,
     event = "VeryLazy",
     opts = function(_, opts)
-      local Util = require("lazyvim.util")
+      local Util = require("lazyvim.util").ui
       local colors = {
         [""] = Util.fg("Special"),
         ["Normal"] = Util.fg("Special"),
@@ -67,13 +67,24 @@ return {
     },
   },
 
-  { import = "lazyvim.plugins.extras.lang.rust" },
-  { import = "lazyvim.plugins.extras.lang.typescript" },
+  -- Godot configuration
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        gdscript = {
+          settings = {},
+        },
+      },
+    },
+  },
+
+  -- { import = "lazyvim.plugins.extras.lang.rust" },
+  -- { import = "lazyvim.plugins.extras.lang.typescript" },
   { import = "lazyvim.plugins.extras.lang.json" },
   { import = "lazyvim.plugins.extras.lang.tailwind" },
   { import = "lazyvim.plugins.extras.lang.elixir" },
   { import = "lazyvim.plugins.extras.lang.clangd" },
   { import = "lazyvim.plugins.extras.lang.docker" },
   { import = "lazyvim.plugins.extras.linting.eslint" },
-  { import = "lazyvim.plugins.extras.formatting.prettier" },
 }
