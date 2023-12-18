@@ -10,3 +10,5 @@ require("telescope").load_extension("file_browser")
 --   ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
 --   { noremap = true }
 -- )
+
+require("config.snippets")
