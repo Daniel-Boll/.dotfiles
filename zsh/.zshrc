@@ -9,3 +9,6 @@ done
 
 unset CONF_DIR
 unset conf
+
+# bun completions
+[ -s "/home/danielboll/.bun/_bun" ] && source "/home/danielboll/.bun/_bun"

@@ -1,5 +1,7 @@
 # vim:ft=bash
 
+alias o="ouch"
+
 alias ls="eza --long --git --icons"
 alias md="mkdir -p"
 alias rf="rm -rf"
@@ -11,7 +13,8 @@ alias glods="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgr
 alias glola="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all"
 alias glog='git log --oneline --decorate --graph'
 alias gloga='git log --oneline --decorate --graph --all'
-alias glp="_git_log_prettily"
+
+alias "gco?"="_fzf_git_each_ref --no-multi | xargs git checkout"
 
 alias sign-commit="git commit -S -s --amend --no-edit"
 alias pingle="ping 8.8.4.4"
@@ -23,14 +26,12 @@ alias open="nvim +':Telescope find_files'"
 
 alias lvim="NVIM_APPNAME=nvim_lazyvim nvim"
 
-alias peak="./build/linux/x86_64/release/peak"
-
 yS() {
   yay -Slq | fzf -m --preview 'cat <(yay -Si {1}) <(yay -F1 {1} | awk "{print \$2}")' | xargs -ro yay -S
 }
 
 yR() {
-  yay -Qq | fzf --multi --preview 'yay -Qi {1}' | xargs -ro sudo yay -Rns
+  yay -Qq | fzf --multi --preview 'yay -Qi {1}' | xargs -ro yay -Rns
 }
 
 update() {
