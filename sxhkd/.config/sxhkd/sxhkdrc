@@ -6,6 +6,9 @@ super + Return
 super + y
   $HOME/scripts/swap-layout.sh
 
+super + q
+  bash -c boomer
+
 # Launchers
 super + r
   $HOME/.config/rofi/scripts/launcher_t7
@@ -25,7 +28,7 @@ super + s
   flameshot gui -c -s
 
 super + shift + s
-  flameshot gui -c
+  flameshot gui
 
 super + o
   $HOME/scripts/dmenu-zathura

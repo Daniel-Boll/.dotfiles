@@ -1,6 +1,9 @@
 # vim:ft=bash
 
 alias o="ouch"
+alias pn="pnpm"
+alias px="pnpx"
+alias ocos="oco -S -s"
 
 alias ls="eza --long --git --icons"
 alias md="mkdir -p"
