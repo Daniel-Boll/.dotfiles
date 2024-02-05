@@ -12,10 +12,7 @@ return {
           accept = "<C-j>",
         },
         filetypes = {
-          markdown = true,
-          yaml = true,
-          gitcommit = true,
-          gitrebase = true,
+          ["*"] = true,
         },
       },
     },

@@ -3,6 +3,8 @@
 alias o="ouch"
 alias pn="pnpm"
 alias px="pnpx"
+alias bn="bun"
+alias bx="bunx"
 alias ocos="oco -S -s"
 
 alias ls="eza --long --git --icons"
@@ -64,4 +66,13 @@ dce() {
 
 package-scripts() {
   cat package.json | jq ".scripts"
+}
+
+ya() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
 }

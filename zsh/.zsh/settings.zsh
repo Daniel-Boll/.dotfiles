@@ -38,6 +38,7 @@ unsetopt BEEP
 #####################
 # ENV VARIABLE      #
 #####################
+export NVIM_APPNAME="nvim_lazyvim"
 export EDITOR='nvim'
 export VISUAL=$EDITOR
 export PAGER='bat'
