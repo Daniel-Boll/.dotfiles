@@ -200,6 +200,33 @@ return {
       end, NS)
     end,
   },
+  {
+    "echasnovski/mini.files",
+    opts = {
+      windows = {
+        preview = true,
+        width_focus = 30,
+        width_preview = 30,
+      },
+      options = {
+        use_as_default_explorer = true,
+      },
+    },
+    keys = {
+      {
+        "<leader>e",
+        function()
+          local mini = require("mini.files")
+          mini.open(vim.api.nvim_buf_get_name(0), true)
+          mini.reveal_cwd()
+        end,
+        desc = "Open mini.files (directory of current file)",
+      },
+    },
+    config = function(_, opts)
+      require("mini.files").setup(opts)
+    end,
+  },
   -- {
   --   "ray-x/lsp_signature.nvim",
   --   event = "VeryLazy",
