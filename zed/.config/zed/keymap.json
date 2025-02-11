@@ -1,0 +1,166 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: Open Default Keymap`
+// from the command palette.
+[
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-y": "editor::ShowCompletions"
+    }
+  },
+  {
+    // Vim normal mode
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      "space space": "file_finder::Toggle",
+      "space u i": "editor::ToggleInlayHints",
+      "space c r": "editor::Rename",
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+      "shift-h": "pane::ActivatePrevItem",
+      "shift-l": "pane::ActivateNextItem",
+      "space b d": "pane::CloseActiveItem",
+      "space e": "project_panel::ToggleFocus",
+      "space t": "terminal_panel::ToggleFocus",
+      "space x x": "diagnostics::Deploy",
+      "space a c": "assistant::ToggleFocus",
+      "g d": "editor::GoToDefinition",
+      "g D": "editor::GoToDefinitionSplit",
+      "g i": "editor::GoToImplementation",
+      "g I": "editor::GoToImplementationSplit",
+      "g t": "editor::GoToTypeDefinition",
+      "g T": "editor::GoToTypeDefinitionSplit",
+      "g r": "editor::FindAllReferences",
+      "] d": "editor::GoToDiagnostic",
+      "[ d": "editor::GoToPrevDiagnostic",
+      ";": "editor::SelectLargerSyntaxNode",
+      "space f p": "projects::OpenRecent",
+      "space m": "editor::SelectNext",
+      "space a i": "assistant::ToggleFocus",
+      "space w": "pane::DeploySearch",
+      "space r n": "editor::Rename"
+    }
+  },
+  {
+    // vim normal and visual
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "bindings": {
+      "space c a": "editor::ToggleCodeActions",
+      ".": "vim::Repeat"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert && !VimWaiting && !menu",
+    "bindings": {
+      // NOTE: Let's see how tab is ergonomically
+      // "ctrl-j": "editor::AcceptInlineCompletion"
+      "ctrl-g p": "vim::Paste"
+    }
+  },
+  {
+    //vim visual mode
+    "context": "Editor && vim_mode == visual && !VimWaiting && !VimObject",
+    "bindings": {
+      "s": "editor::SelectSmallerSyntaxNode",
+      ";": "editor::SelectLargerSyntaxNode",
+      "n": "editor::SelectNext",
+
+      "space a i": "assistant::QuoteSelection",
+
+      // Surround
+      "shift-s '": ["workspace::SendKeystrokes", "d i ' ' left left ctrl-g p"],
+      "shift-s `": ["workspace::SendKeystrokes", "d i ` ` left left ctrl-g p"],
+      "shift-s \"": [
+        "workspace::SendKeystrokes",
+        "d i \" \" left left ctrl-g p"
+      ],
+      "shift-s [": [
+        "workspace::SendKeystrokes",
+        "d i [ space space ] left left left ctrl-g p"
+      ],
+      "shift-s ]": ["workspace::SendKeystrokes", "d i [ ] left left ctrl-g p"],
+      "shift-s {": [
+        "workspace::SendKeystrokes",
+        "d i { space space } left left left ctrl-g p"
+      ],
+      "shift-s }": ["workspace::SendKeystrokes", "d i { } left left ctrl-g p"],
+      "shift-s (": [
+        "workspace::SendKeystrokes",
+        "d i ( space space ) left left left ctrl-g p"
+      ],
+      "shift-s )": ["workspace::SendKeystrokes", "d i ( ) left left ctrl-g p"],
+      "shift-s >": [
+        "workspace::SendKeystrokes",
+        "d i < space space > left left left ctrl-g p"
+      ]
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "a": "project_panel::NewFile",
+      "A": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "x": "project_panel::Cut",
+      "c": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      // Close project panel as project file panel on the right
+      "q": "workspace::ToggleRightDock",
+      "space e": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-t": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+      "shift-n": "workspace::NewTerminal",
+      "shift-h": "pane::ActivatePrevItem",
+      "shift-l": "pane::ActivateNextItem",
+      "shift-o": "pane::CloseActiveItem"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      // "j k": ["workspace::SendKeystrokes", "escape"]
+    }
+  },
+  {
+    "context": "Workspace && VimWaiting && menu",
+    "bindings": {
+      "space b d": "pane::CloseActiveItem"
+    }
+  },
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      // Open file finder
+      "space space": "file_finder::Toggle",
+      // Open recent project
+      "space f p": "projects::OpenRecent"
+    }
+  },
+  {
+    "context": "Dock",
+    "bindings": {
+      "ctrl-w h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-w l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-w k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-w j": ["workspace::ActivatePaneInDirection", "Down"]
+    }
+  }
+]

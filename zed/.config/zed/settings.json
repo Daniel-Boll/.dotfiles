@@ -1,0 +1,119 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `zed: Open Default Settings` command
+// from the command palette
+{
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+  "relative_line_numbers": true,
+  "tab_size": 2,
+  "ui_font_family": "Berkeley Mono",
+  "buffer_font_family": "Berkeley Mono",
+  "tab_bar": {
+    "show": true
+  },
+  "scrollbar": {
+    "show": "never"
+  },
+  // "assistant": {
+  //   "default_model": {
+  //     "provider": "copilot_chat",
+  //     "model": "gpt-4"
+  //   },
+  //   "version": "2"
+  // },
+  "assistant": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4o"
+    },
+    "version": "2"
+  },
+  "theme": {
+    "mode": "system",
+    "light": "Gruvbox Dark Hard",
+    "dark": "One Dark"
+  },
+  "inlay_hints": {
+    "enabled": true
+  },
+  "terminal": {
+    "env": {
+      "EDITOR": "zed --wait"
+    }
+  },
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "rustfmt": {
+          "enable": true,
+          "extraArgs": ["+nightly"]
+        },
+        "checkOnSave": {
+          "command": "clippy"
+        }
+      }
+    },
+    "tailwindcss-language-server": {
+      "settings": {
+        "classAttributes": ["class", "className", "ngClass", "styles"]
+      }
+    },
+    "discord_presence": {
+      "initialization_options": {
+        "base_icons_url": "https://raw.githubusercontent.com/xhyrom/zed-discord-presence/main/assets/icons/",
+        "state": "Working on {filename}",
+        "details": "In {workspace}",
+        "large_image": "{base_icons_url}/{language}.png",
+        "large_text": "{language:u}", // :u makes first letter upper-case
+        "small_image": "{base_icons_url}/zed.png",
+        "small_text": "Zed",
+        "git_integration": true
+      }
+    }
+  },
+  "languages": {
+    // Refer https://zed.dev/docs/languages/javascript and https://zed.dev/docs/languages/typescript for more info
+    "TypeScript": {
+      "language_servers": ["biome", "!typescript-language-server", "!eslint"],
+      // Refer https://github.com/jellydn/ts-inlay-hints for how to setup for Neovim and VSCode
+      "inlay_hints": {
+        "enabled": true,
+        "show_parameter_hints": false,
+        "show_other_hints": true,
+        "show_type_hints": true
+      }
+    },
+    "GDScript": {
+      "format_on_save": {
+        "external": {
+          "command": "gdformat",
+          "arguments": ["-"]
+        }
+      }
+    }
+  },
+  "project_panel": {
+    "button": true,
+    "dock": "right",
+    "git_status": true
+  },
+  "notification_panel": {
+    "dock": "left"
+  },
+  "chat_panel": {
+    "dock": "left"
+  },
+  "scroll_beyond_last_line": "off",
+  "vertical_scroll_margin": 8,
+  "ensure_final_newline_on_save": false,
+  "remove_trailing_whitespace_on_save": true,
+  "experimental.theme_overrides": {
+    "editor.background": "#000"
+  }
+}
