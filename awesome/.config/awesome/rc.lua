@@ -36,6 +36,12 @@ naughty.connect_signal("request::display_error", function(message, startup)
 end)
 -- }}}
 
+awful.spawn.with_shell(
+	"xrandr --output DP-0 --primary --mode 1920x1080 --pos 0x0 --rate 239.76 --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate right --rate 143.98"
+)
+
+awful.spawn.with_shell("xset r rate 250 45")
+
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
@@ -438,8 +444,8 @@ client.connect_signal("request::default_keybindings", function()
 			c:kill()
 		end, { description = "close", group = "client" }),
 		awful.key(
-			{ modkey, "Control" },
-			"space",
+			{ modkey, "Shift" },
+			"f",
 			awful.client.floating.toggle,
 			{ description = "toggle floating", group = "client" }
 		),
@@ -471,7 +477,7 @@ client.connect_signal("request::default_keybindings", function()
 		end, { description = "(un)maximize horizontally", group = "client" }),
 
 		-- ctrl + space (dismiss all notifications)
-		awful.key({ "Control" }, "space", function()
+		awful.key({ "Control", "Shift" }, "space", function()
 			naughty.destroy_all_notifications()
 		end, { description = "dismiss all notifications", group = "notifications" }),
 
